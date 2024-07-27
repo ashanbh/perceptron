@@ -1,0 +1,20 @@
+#poetry
+poetry.lock
+
+#intellij
+.idea
+.vscode
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupiter notebook
+*.ipynb_checkpoints
+*.ipynb_checkpoints/*
+
+#swap files
+*.swp
+node_modules
+
+
