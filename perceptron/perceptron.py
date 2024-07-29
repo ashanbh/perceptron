@@ -1,21 +1,20 @@
+import numpy as np
+import copy
+
 #basic perceptron algorithm
-def perceptron(X, Y, w, b, epochs=20, predict=False):
+def perceptron(X, Y, w, b, epochs=20, predict=False, debug_function=None):
     # how untrained am I?
     if predict:
         prediction_errors = 0
         for i, x in enumerate(X):
             a = np.dot(x, w) + b
             y = Y[i]
-            print(
-                f"Prediction: {'Horizontal' if a > 0 else 'Vertical'} ({a}) GT:{'Horizontal' if y > 0 else 'Vertical'}({y})")
-
             # Count errors
             if (a * y) <= 0:
                 print("Mismatch")
                 prediction_errors += 1
-
-            # show card
-            draw_card(x)
+            if debug_function:
+                debug_function(x,y,a)
         print(f"Prediction Errors:{prediction_errors}")
 
     # start Training
