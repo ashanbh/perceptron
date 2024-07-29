@@ -19,15 +19,71 @@ his seminal
 paper ["The perceptron: a probabilistic model for information storage and organization in the brain." Rosenblatt F.(1958)](https://www.ling.upenn.edu/courses/cogs501/Rosenblatt1958.pdf)
 
 ## Overview
-
+here is a mermaid drawing of the perceptron
 ```mermaid
-graph LR;
-    	x1 -- (w1) --> Y;
-    	x2 -- (w1) --> Y;
-	x3 -- (w1) --> Y;
-	.. -- (w1) --> Y;
-    	x4 -- (w1) --> Y;
+flowchart LR
+    subgraph Inputs["Inputs"]
+        A1["$$ x_1$$"]
+        A2["$$ x_2$$"]
+        ADOT[".."]
+        AN["$$ x_n$$"]
+    end
+    subgraph subGraph1["Weights"]
+        w1(("$$ w_1 $$"))
+        w2(("$$ w_2 $$"))
+        wDOT[".."]
+        wN(("$$ w_n $$"))
+    end
+    C{"$$ z = \sum_{i=1}^n x_i w_i + b $$"}
+    y["$$ output = \begin{cases}1 & \text{if }\ \sum\limits_{i=0}^n w_ix_i > 0,\\-1 & \text{otherwise}\end{cases} $$"]
+
+    %% Comments after double percent signs
+
+    A1 --> w1 
+    w1--> C
+    A2 --> w2
+    w2 --> C
+    ADOT --> wDOT
+    wDOT --> C
+    AN --> wN
+    wN --> C
+    C --> y
+    style C color:#000000,fill:#,stroke:#333,stroke-width:2px
+
 ```
+Fig: O1 
+<details><summary><i>Mermaid schema for Fig 01</i></summary>
+<pre><code>mermaid
+   flowchart LR
+    subgraph Inputs["Inputs"]
+        A1["$$ x_1$$"]
+        A2["$$ x_2$$"]
+        ADOT[".."]
+        AN["$$ x_n$$"]
+    end
+    subgraph subGraph1["Weights"]
+        w1(("$$ w_1 $$"))
+        w2(("$$ w_2 $$"))
+        wDOT[".."]
+        wN(("$$ w_n $$"))
+    end
+    C{"$$ z = \sum_{i=1}^n x_i w_i + b $$"}
+    y["$$ output = \begin{cases}1 & \text{if }\ \sum\limits_{i=0}^n w_ix_i > 0,\\-1 & \text{otherwise}\end{cases} $$"]
+
+    %% Comments after double percent signs
+
+    A1 --> w1 
+    w1--> C
+    A2 --> w2
+    w2 --> C
+    ADOT --> wDOT
+    wDOT --> C
+    AN --> wN
+    wN --> C
+    C --> y
+    style C color:#000000,fill:#,stroke:#333,stroke-width:2px
+</code></pre>
+</details>
 
 
 ##### About the files
