@@ -79,6 +79,7 @@ Laboratory. The perceptron was the first neural network, and it was the first ti
 own mistakes.
 
 ![An image of the perceptron](./static/perceptron_diagram.png "An image of the perceptron from Rosenblatt's “The Design of an Intelligent Automaton,” Summer 1958.")
+
 An image of the perceptron from Rosenblatt's “The Design of an Intelligent Automaton,” Summer 1958."
 
 ## Critcisms and Limitations
