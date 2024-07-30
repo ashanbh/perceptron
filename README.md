@@ -63,7 +63,8 @@ and non-linear functions are common and trivial to find.
 
 e.g. [Minsky and Papert](https://books.google.com/books/about/Perceptrons_Reissue_of_the_1988_Expanded.html?id=PLQ5DwAAQBAJ)
 showed that perceptrons could not learn simple functions like the XOR function
-![Non Linlearly seprable functions](static/nonseparable.png)
+
+<img src="static/nonseparable.png" title="Non Linlearly seprable functions" width=200>
 
 Furthermore, if the perceptron has N inputs, the decision boundary is an N-1 dimensional hyperplane. E.g. in a
 2D space, the decision boundary is a line, in a 3D space, the decision boundary is a plane, and so on.
