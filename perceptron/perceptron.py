@@ -1,7 +1,7 @@
 import numpy as np
 import copy
 
-def predict_only(X, Y, w, b, debug_function=None):
+def predict_only(X, Y, w, b, debug_function=None, summarize=True):
     # how untrained am I?
     prediction_errors = 0
     for i, x in enumerate(X):
@@ -12,7 +12,8 @@ def predict_only(X, Y, w, b, debug_function=None):
             prediction_errors += 1
         if debug_function:
             debug_function(x,y,a)
-    print(f"Prediction Errors:{prediction_errors}")
+    if summarize:
+        print(f"Prediction Errors:{prediction_errors}")
     return prediction_errors
 
 #basic perceptron algorithm
