@@ -1,21 +1,25 @@
 import numpy as np
 import copy
 
+def predict_only(X, Y, w, b, debug_function=None):
+    # how untrained am I?
+    prediction_errors = 0
+    for i, x in enumerate(X):
+        a = np.dot(x, w) + b
+        y = Y[i]
+        # Count errors
+        if (a * y) <= 0:
+            prediction_errors += 1
+        if debug_function:
+            debug_function(x,y,a)
+    print(f"Prediction Errors:{prediction_errors}")
+    return prediction_errors
+
 #basic perceptron algorithm
 def perceptron(X, Y, w, b, epochs=20, predict=False, debug_function=None):
     # how untrained am I?
     if predict:
-        prediction_errors = 0
-        for i, x in enumerate(X):
-            a = np.dot(x, w) + b
-            y = Y[i]
-            # Count errors
-            if (a * y) <= 0:
-                print("Mismatch")
-                prediction_errors += 1
-            if debug_function:
-                debug_function(x,y,a)
-        print(f"Prediction Errors:{prediction_errors}")
+        predict_only(X, Y, w, b, debug_function)
 
     # start Training
     for t in range(epochs):
@@ -34,7 +38,8 @@ def perceptron(X, Y, w, b, epochs=20, predict=False, debug_function=None):
                 pass
 
         if (np.array_equal(w_old, w)):
-            print(f"CONVERGENCE (epoch:{t})")
+            #converged in the `t+1`st epoch
+            return (w, b, t+1)
             break
 
-    return (w, b)
+    return (w, b, 0)
