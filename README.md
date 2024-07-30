@@ -14,8 +14,10 @@
 ##### About the files
 
 * `perceptron.py` : Simple small implementation of the algorithm.
-* `notebooks/perceptron_2d.ipynb` : A simple perceptron with 2 inputs trained on an 8x8 card - predicts whether
-* `notebooks/perceptron_64.ipynb` : A simple perceptron with 64 inputs trained on an 8x8 card
+* `notebooks/perceptron_2d.ipynb` : A simple perceptron with 2 inputs trained on an 8x8 card - learns a linear boundary
+  in each card.
+* `notebooks/perceptron_64.ipynb` : A simple perceptron with 64 inputs trained on an 8x8 card. Learns to predict whether
+  the cards have vertical or horizontal boundaries.
 
 ## Overview
 
@@ -26,43 +28,48 @@ by [Frank Rosenblatt](https://en.wikipedia.org/wiki/Frank_Rosenblatt) in
 his seminal
 paper ["The perceptron: a probabilistic model for information storage and organization in the brain." Rosenblatt F.(1958)](https://www.ling.upenn.edu/courses/cogs501/Rosenblatt1958.pdf)
 
-## Pereceptron Algorithm 
+## Pereceptron Algorithm
+
 ![Basic Percepton](./static/perceptron.svg "Basic function of a perceptron")
 Fig: 01
 
 Apply a set of weights to the input features and sum them up. If the sum is greater than a threshold, the perceptron
 fires and outputs a 1, otherwise it outputs a -1.
 
-
 ## Pereceptron Algorithm Learning
-Update the weights based on the error in the prediction. The weights are updated by adding the product of the error and the input to the current weight.
 
-$$ 
-    \text{if } y*a \leq 0 \text{ then }
-    \bigg|\begin{multline}
-    \begin{aligned}
-    w_i &= w_i + y x_i \text{ for i  = 1,2,3,..,n} \\
-    b &= b + y
-    \end{aligned}
-    \end{multline}
+Update the weights based on the error in the prediction. The weights are updated by adding the product of the error and
+the input to the current weight.
+
+$$
+\text{if } y*a \leq 0 \text{ then }
+\bigg|\begin{multline}
+\begin{aligned}
+w_i &= w_i + y x_i \text{ for i = 1,2,3,..,n} \\
+b &= b + y
+\end{aligned}
+\end{multline}
 $$
 
-The key is that if there are no errors, the weights are not updated. 
-If there are errors, the weights are updated in the direction that reduces the error. 
+The key is that if there are no errors, the weights are not updated.
+If there are errors, the weights are updated in the direction that reduces the error.
 
 ## Perceptron Convergence
-However, as long as the data is linearly separable, the perceptron algorithm is [guaranteed to converge to a solution.](https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote03.html#:~:text=The%20Perceptron%20was%20arguably%20the,%2C%20it%20will%20loop%20forever.)
-But, a major limitation of the perceptron is that it can <mark>only learn linearly separable functions.</mark>, 
+
+However, as long as the data is linearly separable, the perceptron algorithm
+is [guaranteed to converge to a solution.](https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote03.html#:~:text=The%20Perceptron%20was%20arguably%20the,%2C%20it%20will%20loop%20forever.)
+But, a major limitation of the perceptron is that it can <mark>only learn linearly separable functions.</mark>,
 and non-linear functions are common and trivial to find.
 
 e.g. [Minsky and Papert](https://books.google.com/books/about/Perceptrons_Reissue_of_the_1988_Expanded.html?id=PLQ5DwAAQBAJ)
 showed that perceptrons could not learn simple functions like the XOR function
 ![Non Linlearly seprable functions](static/nonseparable.png)
 
-Furthermore, if the perceptron has N inputs, the decision boundary is an N-1 dimensional hyperplane. E.g. in a 
+Furthermore, if the perceptron has N inputs, the decision boundary is an N-1 dimensional hyperplane. E.g. in a
 2D space, the decision boundary is a line, in a 3D space, the decision boundary is a plane, and so on.
 
 ## History of the Perceptron
+
 There are
 many [inventions that have shaped the field of artificial intelligence](https://www.mckinsey.com/featured-insights/artificial-intelligence/deep-learnings-origins-and-pioneers),
 but one of the most important is the perceptron. The perceptron was invented in 1957 by Frank Rosenblatt, a psychologist
@@ -113,7 +120,6 @@ died in a boating accident in 1971, his belief in the potential of neural networ
 ## Resources
 
 Mermaid flowchart for Fig 01
-`
 
 ``` mermaid
    flowchart LR
@@ -130,8 +136,8 @@ Mermaid flowchart for Fig 01
         wN(("$$ w_n $$"))
     end
     C{"$$ z = \sum_{i=1}^n x_i w_i + b $$"}
-    y["$$ output = \begin{cases}1 & \text{if }\ \sum\limits_{i=0}^n w_ix_i > 0,\\-1 & \text{otherwise}\end{cases} $$"]
-
+    step["$$ output = \begin{cases}1 & \text{if }\ z > T \text{,\ where T is some threshold},\\-1 & \text{otherwise}\end{cases} $$"]
+    output["$$y$$"]
     %% Comments after double percent signs
 
     A1 --> w1 
@@ -142,6 +148,7 @@ Mermaid flowchart for Fig 01
     wDOT --> C
     AN --> wN
     wN --> C
-    C --> y
-    style C color:#000000,fill:#,stroke:#333,stroke-width:2px
-``````
+    C --> step
+    step --> output
+    style C stroke-width:2px
+```
