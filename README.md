@@ -1,11 +1,11 @@
 # Simple Perceptron implementation in Python
 
+Fig: 01: Perceptron algorithm
 <img src="./static/perceptron.svg" title= "Basic function of a perceptron" width = "800px">
 
-Fig: 01: Perceptron algorithm
 
+<br><br>Fig: 02: Weights and  errors for a 2-input perceptron<br>
 <img src ="./static/4dplot.png" title="Solutions for a 2 input perceptron" width = "600px">
-Fig: 02: Solutions for a 2 input perceptron
 
 ## Getting started
 
