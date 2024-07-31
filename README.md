@@ -45,7 +45,7 @@ $$
 
 where $a$ is the output of the perceptron, $w_i$ are the weights, $x_i$ are the input features, and $b$ is the bias term.
 
-## Pereceptron Algorithm Learning
+## Pereceptron Learning
 Update the weights based on the error in the prediction. The weights are updated by adding the product of the error and
 the input to the current weight.
 
@@ -63,7 +63,7 @@ The key is that if there are no errors, the weights are not updated.
 If there are errors, the weights are updated in the direction that reduces the error.
 
 
-#### How do weights and bias affect the error?
+## How do weights and bias affect the error?
  * Here the perceptron was being trained on a 2D dataset, with 2 input features, to find a linear 
 separator between two classes.
  * In the charts below, we have  visualized the prediction errors relative to weights and bias
@@ -91,7 +91,7 @@ $$
 
 Perceptron Error by weights |  Perceptron Error by weights and bias
 :-------------------------:|:-------------------------:
-![](../static/3dplot.png)  |  ![](../static/4dplot.png)
+![](./static/3dplot.png)  |  ![](./static/4dplot.png)
 Diagram: 1a | Diagram: 1b
 
 
