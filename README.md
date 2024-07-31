@@ -36,15 +36,16 @@ his seminal
 paper ["The perceptron: a probabilistic model for information storage and organization in the brain." Rosenblatt F.(1958)](https://www.ling.upenn.edu/courses/cogs501/Rosenblatt1958.pdf)
 
 ## Pereceptron Algorithm
-
-![Basic Percepton](./static/perceptron.svg "Basic function of a perceptron")
-Fig: 01
-
 Apply a set of weights to the input features and sum them up. If the sum is greater than a threshold, the perceptron
 fires and outputs a 1, otherwise it outputs a -1.
 
-## Pereceptron Algorithm Learning
+$$
+   a =  \sum_i{w_i * x_i} + b 
+$$
 
+where $a$ is the output of the perceptron, $w_i$ are the weights, $x_i$ are the input features, and $b$ is the bias term.
+
+## Pereceptron Algorithm Learning
 Update the weights based on the error in the prediction. The weights are updated by adding the product of the error and
 the input to the current weight.
 
@@ -60,6 +61,39 @@ $$
 
 The key is that if there are no errors, the weights are not updated.
 If there are errors, the weights are updated in the direction that reduces the error.
+
+
+#### How do weights and bias affect the error?
+ * Here the perceptron was being trained on a 2D dataset, with 2 input features, to find a linear 
+separator between two classes.
+ * In the charts below, we have  visualized the prediction errors relative to weights and bias
+ * The error $e$ is a function over vector of weights $W$, and bias $b$, calculated by counting instances where the sign of the predicted output $a$ does not match that of the ground truth $y$. 
+
+$$
+   e(W,b) = \sum_{ i = 1}^t{\lbrack y*a < 0\rbrack}
+$$
+
+ * The weights are the `x` and `y` axes, the error in on the `z` axis.
+ * The `bias` is shown as a color scale, is the value of `(W,b)` that produces the least error.
+ * Furthermore, the perceptron algorithm progressively updates the weights to reduce the error. Here, $w_i^\prime$ and $b^\prime$ are the updated weights and bias, respectively. $a^\prime$ is the updated output of the perceptron.
+
+$$
+\begin{equation}
+\begin{aligned}
+   w^\prime_i &=  w_i + y * x_i \\
+   b^\prime &=  b + y \\
+   a^\prime &=  \sum_i{w_i^\prime * x_i} + b^\prime\\  
+\end{aligned}   
+\end{equation}   
+$$
+
+ * The space looks smooth, with no discontinuities and no visible local minima. 
+
+Perceptron Error by weights |  Perceptron Error by weights and bias
+:-------------------------:|:-------------------------:
+![](../static/3dplot.png)  |  ![](../static/4dplot.png)
+Diagram: 1a | Diagram: 1b
+
 
 ## Perceptron Convergence
 
