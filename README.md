@@ -4,9 +4,6 @@ Fig: 01: Perceptron algorithm
 <img src="./static/perceptron.svg" title= "Basic function of a perceptron" width = "800px">
 
 
-<br><br>Fig: 02: Weights and  errors for a 2-input perceptron<br>
-<img src ="./static/4dplot.png" title="Solutions for a 2 input perceptron" width = "600px">
-
 ## Getting started
 
 * Dependencies
@@ -89,11 +86,10 @@ $$
 
  * The space looks smooth, with no discontinuities and no visible local minima. 
 
-Perceptron Error by weights |  Perceptron Error by weights and bias
-:-------------------------:|:-------------------------:
-![](./static/3dplot.png)  |  ![](./static/4dplot.png)
-Diagram: 1a | Diagram: 1b
-
+|             Perceptron Error by weights              |             Perceptron Error by weights and bias              |
+|:----------------------------------------------------:|:-------------------------------------------------------------:|
+| ![3d plot of errors by weights](./static/3dplot.png) | ![4d plot of errors, weights and biases](./static/4dplot.png) |
+|                     Diagram: 1a                      |                          Diagram: 1b                          |
 
 ## Perceptron Convergence
 
