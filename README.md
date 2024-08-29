@@ -1,3 +1,10 @@
+
+|             Perceptron Error by weights              |             Perceptron Error by weights and bias              |
+|:----------------------------------------------------:|:-------------------------------------------------------------:|
+| ![3d plot of errors by weights](./static/3dplot.png) | ![4d plot of errors, weights and biases](./static/4dplot.png) |
+|                     Diagram: 1a                      |                          Diagram: 1b                          |
+
+
 # Simple Perceptron implementation in Python
 
 Fig: 01: Perceptron algorithm
@@ -85,11 +92,6 @@ $$
 $$
 
  * The space looks smooth, with no discontinuities and no visible local minima. 
-
-|             Perceptron Error by weights              |             Perceptron Error by weights and bias              |
-|:----------------------------------------------------:|:-------------------------------------------------------------:|
-| ![3d plot of errors by weights](./static/3dplot.png) | ![4d plot of errors, weights and biases](./static/4dplot.png) |
-|                     Diagram: 1a                      |                          Diagram: 1b                          |
 
 ## Perceptron Convergence
 
